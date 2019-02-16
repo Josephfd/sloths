@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Document</title>
+        <link href='reset.css' rel='stylesheet'>
+        <style>
+            body {
+                background-image: url('jungle.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .header-div {
+                margin: 0 auto;
+                max-width: 500px;
+                height: 100px;
+                padding-top: 25px;
+                
+            }
+
+            .img-div {
+                height: 500px;
+                max-width:50%;
+                margin: 25px auto;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            h1, p {
+                color: black;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            p {
+                font-size: 14px;
+                font-style: italic;
+                
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            footer {
+                width: 100%;
+                height: 50px;
+                background-color: white;
+                padding-top: 15px;
+                margin: 0;
+                display: fixed;
+                bottom: 0;
+            }
+
+            @media only screen and (max-width: 800px) {
+                h1, p {
+                    color: white;
+                }
+
+                .img-div {
+                    max-width: 80%;
+                }
+                
+                footer {
+                    background-color: black;
+                }
+            }
+
+        
+        </style>
+    </head>
+    <body>
+        <div class='header-div'>
+            <h1>Lauren's Sloth Page</h1><br><br>
+            <p>Click on the Image!</p>
+        </div>
+        <div class='img-div'>
+            <img src='sloth.jpg'>
+        </div>
+        <footer class='foot'>
+            <p>Make by Joe with JavaScript APIs</p>
+        </footer>
+        <script>
+            const img = document.querySelector('img');
+            const headDiv = document.querySelector('header-div');
+
+            // let addHeader = function() {
+            //     let pageTitle = document.createAttribute('h1');
+            //     pageTitle.textContent = 'Lauren\'s Sloth Page';
+            //     headDiv.appendChild(pageTitle);
+            //     let pageSub = document.createAttribute('p');
+            //     pageSub.textContent = 'Click on the Image';
+            //     headDiv.appendChild(pageSub);
+            // }
+            // addHeader();
+
+            img.addEventListener('click', function() {
+                fetch('https://api.giphy.com/v1/gifs/translate?api_key=zIo2mvBpb3X3RSPHl2zrQzfx1OlBf8W9&s=sloths', {mode: 'cors'})
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(response) {
+                    console.log(response.data.images.original.url);
+                    img.src = response.data.images.original.url
+                })
+            });
+
+        </script>
+    </body>
+</html>
