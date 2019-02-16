@@ -20,9 +20,10 @@
             }
 
             .img-div {
-                height: 500px;
+                height: 650px;
                 max-width:50%;
                 margin: 25px auto;
+                position: relative;
             }
 
             img {
@@ -52,8 +53,8 @@
                 background-color: white;
                 padding-top: 15px;
                 margin: 0;
-                display: fixed;
-                bottom: 0;
+                display: relative;
+                
             }
 
             @media only screen and (max-width: 800px) {
@@ -67,6 +68,24 @@
                 
                 footer {
                     background-color: black;
+                }
+            }
+
+            @media only screen and (max-width: 450px) {
+                h1, p {
+                    color: rgb(228, 52, 204);
+                }
+
+                .img-div {
+                    width: 700px;
+                    height: auto;
+                }
+                
+                footer {
+                    background-color: black;
+                }
+                body {
+                    background-size: 150%;
                 }
             }
 
