@@ -123,6 +123,7 @@
         <script>
             const img = document.querySelector('img');
             const headDiv = document.querySelector('header-div');
+            let lauren = document.querySelector('h1');
 
             // let addHeader = function() {
             //     let pageTitle = document.createAttribute('h1');
@@ -135,6 +136,8 @@
             // addHeader();
 
             img.addEventListener('click', function() {
+                lauren.textContent = 'Happy Valentines Day!'
+                
                 fetch('https://api.giphy.com/v1/gifs/translate?api_key=zIo2mvBpb3X3RSPHl2zrQzfx1OlBf8W9&s=sloths', {mode: 'cors'})
                 .then(function(response) {
                     return response.json()
